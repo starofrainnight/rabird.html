@@ -24,6 +24,8 @@ long_description = (
     open("CHANGES.rst", "r").read()
 )
 
+exec(pydgutils.version.read_version_file(source_dir, package_name))
+
 setup(
     name=package_name,
     version=__version__,
