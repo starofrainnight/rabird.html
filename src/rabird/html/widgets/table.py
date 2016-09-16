@@ -13,11 +13,11 @@ class Table(Widget):
 
     @property
     def headers(self):
-        header_prefix = ""
-        if len(self._xpath("/thead")) > 0:
-            header_prefix = "/thead"
+        header_prefix = "."
+        if len(self._wrapper.xpath("./thead")) > 0:
+            header_prefix = "./thead"
 
-        return self._xpath(header_prefix + "/tr[1]/th")
+        return self._wrapper.xpath(header_prefix + "/tr[1]/th")
 
     @property
     def row_count(self):
