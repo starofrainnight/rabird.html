@@ -1,19 +1,23 @@
+from .widget import Widget
 
-class Table(object):
+class Table(Widget):
     def __init__(self, element):
-        self._element = element
+        super().__init__(element)
 
-    @property
-    def element(self):
-        return self._element
+        self._xpath_prefix = "."
+        if len(self._xpath("./tbody[1]")) > 0:
+            self._xpath_prefix = "./tbody[1]"
+
+    def _xpath(self, pattern):
+        return self._wrapper.xpath(self._xpath_prefix + pattern)
 
     @property
     def headers(self):
-        return self.root.findall(".//tbody/tr[1]/th")
+        return self._xpath("/tr[1]/th")
 
     @property
     def row_count(self):
-        count = len(self.root.findall(".//tbody/tr"))
+        count = len(self._xpath("/tr"))
         if len(self.headers) > 0:
             count -= 1
 
@@ -21,7 +25,7 @@ class Table(object):
 
     @property
     def col_count(self):
-        elements = self.root.findall(".//tbody/tr[1]/td")
+        elements = self._xpath("/tr[1]/td")
         if len(elements) <= 0:
             elements = self.headers
 
@@ -32,7 +36,7 @@ class Table(object):
         if len(self.headers) > 0:
             index += 1
 
-        return self.root.findall(".//tbody/tr[%s]/td" % index)
+        return self._xpath("/tr[%s]/td" % index)
 
     def get_col(self, index):
         index += 1
@@ -40,7 +44,7 @@ class Table(object):
         if len(self.headers) > 0:
             start_pos = 1
 
-        return self.root.findall(".//tbody/tr/td[%s]" % index)[start_pos:]
+        return self._xpath("/tr/td[%s]" % index)[start_pos:]
 
     def get(self, row, col):
         return self.get_row(row)[col]
