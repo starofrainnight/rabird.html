@@ -5,6 +5,11 @@ import xml.sax.saxutils
 import unicodedata
 
 def get_text(element):
+    if hasattr(element, "get_attribute"):
+        # Support selenium elements
+        return element.get_attribute("innerText")
+
+    # Support ElementTree elements
     return ''.join(element.itertext())
 
 def get_numeric(element):
