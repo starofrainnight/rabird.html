@@ -12,10 +12,13 @@ def get_text(element):
     # Support ElementTree elements
     return ''.join(element.itertext())
 
-def get_numeric(element):
-    text = get_text(element)
+def to_numeric(text):
     text = unicodedata.normalize('NFKC', text)
     return float(text.strip().replace(",", ""))
+
+def get_numeric(element):
+    text = get_text(element)
+    return to_numeric(text)
 
 # escape() and unescape() takes care of &, < and >.
 html_escape_table = {
