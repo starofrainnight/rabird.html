@@ -5,7 +5,7 @@ class Table(Widget):
         super().__init__(element)
 
         self._xpath_prefix = "."
-        if len(self._xpath("./tbody[1]")) > 0:
+        if len(self._wrapper.xpath("./tbody[1]")) > 0:
             self._xpath_prefix = "./tbody[1]"
 
     def _xpath(self, pattern):
@@ -22,8 +22,9 @@ class Table(Widget):
     @property
     def row_count(self):
         count = len(self._xpath("/tr"))
-        if len(self.headers) > 0:
-            count -= 1
+        if len(self._wrapper.xpath("./thead")) <= 0:
+            if len(self.headers) > 0:
+                count -= 1
 
         return count
 
@@ -37,16 +38,18 @@ class Table(Widget):
 
     def get_row(self, index):
         index += 1
-        if len(self.headers) > 0:
-            index += 1
+        if len(self._wrapper.xpath("./thead")) <= 0:
+            if len(self.headers) > 0:
+                index += 1
 
         return self._xpath("/tr[%s]/td" % index)
 
     def get_col(self, index):
         index += 1
         start_pos = 0
-        if len(self.headers) > 0:
-            start_pos = 1
+        if len(self._wrapper.xpath("./thead")) <= 0:
+            if len(self.headers) > 0:
+                start_pos = 1
 
         return self._xpath("/tr/td[%s]" % index)[start_pos:]
 
