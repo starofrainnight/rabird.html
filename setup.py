@@ -1,4 +1,7 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+"""The setup script."""
 
 from pydgutils_bootstrap import use_pydgutils
 use_pydgutils()
@@ -16,38 +19,52 @@ from setuptools import setup, find_packages
 package_name = "rabird.html"
 
 our_packages, source_dir = pydgutils.process_packages()
-our_requires = pydgutils.process_requirements()
 
-long_description = (
-    open("README.rst", "r").read()
-    + "\n" +
-    open("CHANGES.rst", "r").read()
-)
+with open('README.rst') as readme_file, open('HISTORY.rst') as history_file:
+    long_description = (readme_file.read() + "\n\n" + history_file.read())
 
-exec(pydgutils.version.read_version_file(source_dir, package_name))
+install_requires = [
+    # TODO: put package requirements here
+    'rabird.core',
+]
+
+setup_requires = [
+    'pytest-runner',
+    # TODO(starofrainnight): put setup requirements (distutils extensions, etc.) here
+]
+
+tests_requires = [
+    'pytest',
+    # TODO: put package test requirements here
+]
 
 setup(
-    name=package_name,
-    version=__version__,
-    author="Hong-She Liang",
-    author_email="starofrainnight@gmail.com",
-    url="https://github.com/starofrainnight/%s" % package_name,
-    description="",
+    name='rabird.html',
+    version='0.0.1',
+    description="Provided some utilities that help html parsing",
     long_description=long_description,
-    classifiers=[
-        "Development Status :: 3 - Alpha",
-        "Intended Audience :: Developers",
-        "License :: OSI Approved :: MIT License",
-        "Operating System :: OS Independent",
-        "Programming Language :: Python :: 2",
-        "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: Implementation :: CPython",
-        "Topic :: Software Development :: Libraries",
-    ],
-    install_requires=our_requires,
-    package_dir={"": source_dir},
+    author="Hong-She Liang",
+    author_email='starofrainnight@gmail.com',
+    url='https://github.com/starofrainnight/rabird.html',
     packages=our_packages,
-    namespace_packages=[package_name.split(".")[0]],
-    # If we don"t set the zip_safe to False, pip can"t find us.
+    package_dir={"": source_dir},
+    include_package_data=True,
+    install_requires=install_requires,
+    license="Apache Software License",
     zip_safe=False,
+    keywords='rabird.html',
+    classifiers=[
+        'Development Status :: 2 - Pre-Alpha',
+        'Intended Audience :: Developers',
+        'License :: OSI Approved :: Apache Software License',
+        'Natural Language :: English',
+        'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.4',
+        'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.6',
+    ],
+    test_suite='tests',
+    tests_require=tests_requires,
+    setup_requires=setup_requires,
 )
