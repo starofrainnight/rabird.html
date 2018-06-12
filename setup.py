@@ -39,7 +39,7 @@ tests_requires = [
 
 setup(
     name='rabird.html',
-    version='0.0.2',
+    version='0.0.3',
     description="Provided some utilities that help html parsing",
     long_description=long_description,
     author="Hong-She Liang",
