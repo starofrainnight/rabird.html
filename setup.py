@@ -13,7 +13,6 @@ import shutil
 import logging
 import fnmatch
 import pydgutils
-import pydgutils.version
 from setuptools import setup, find_packages
 
 package_name = "rabird.html"
