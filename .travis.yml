@@ -27,7 +27,7 @@ deploy:
   distributions: sdist bdist_wheel
   user: starofrainnight
   password:
-    secure: PLEASE_REPLACE_ME
+    secure: "fNBftw562yQniDFNaV3PScj/WvsVmQfwCsMoTVyNRUkdlvmSdeUQsx28vbjhttI9ik38YUR3YrxCDMuWmSTfP7AfLhRTolniZOzhzr2STc62opOM9UedogEY/WtrcSLmOyv7VgEKzMg1jvOKLOJn5jdNnuCFBidmk0fBVpmkz36Ix3qKQe4nG8GCpcx+HxLowUD5Onm0ES7M+MkhROqhthBHk7oPikMpmOAoF1wu+2EPLfPJvMFobL1H3VF0UXNpmVruoD/8bQ+LEZKT8WjZqDWHobQkYMj0Zqsmj3/ooIAu2ZM6VZuEDjWX4u0YWdtyuYsefkx23XAyT4ex3FoGidgwOgky+JHGtnEaHor6rGoMWoBkIzkWTBCgXKf2UN+eA0K7DrdCPK4juJT+E/+z7hUa+LrosIZjoef784aeev2xhUZT4crAVyzpi+SvLwbWLLIZgRxnjF265j/71RHiQeMpD/uP2/JBPoj8MszChTVuxRGd0xrp3lmegGMn9E2pptNCwOSdWLgaLtz+HfpH/yYEuEGY46aupbbaKhJlkLi+2q4XBWOFRlDs4ND4qzd7E/V0RAloDcw1a0K5GBu2e2YddcycEDth/u10f/zTZMwo6ULtxp6Lba40Tu4QqsfBm75Ez7tbykrGR0QQx/7ERBpOgRty68t2SRFcnMmk+fU="
   on:
     tags: true
     repo: starofrainnight/rabird.html
