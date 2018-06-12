@@ -108,3 +108,8 @@ preprocessed/
 output/
 python_boilerplate/
 
+# mypy cache
+.mypy_cache
+
+# VSCode configurations
+.vscode
