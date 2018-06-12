@@ -4,9 +4,7 @@
 """Tests for `rabird.html` package."""
 
 import pytest
-
-
-from rabird.html import rabird.html
+import rabird.html
 
 
 @pytest.fixture
