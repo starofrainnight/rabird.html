@@ -1,3 +1,5 @@
-from .version import __version__
-from .utils import *
-from . import widgets
+# -*- coding: utf-8 -*-
+
+__author__ = """Hong-She Liang"""
+__email__ = 'starofrainnight@gmail.com'
+__version__ = '0.0.1'
