@@ -4,13 +4,13 @@ rabird.html
 
 
 .. image:: https://img.shields.io/pypi/v/rabird.html.svg
-        :target: https://pypi.python.org/pypi/rabird.html
+    :target: https://pypi.python.org/pypi/rabird.html
 
-.. image:: https://img.shields.io/travis/starofrainnight/rabird.html.svg
-        :target: https://travis-ci.org/starofrainnight/rabird.html
+.. image:: https://travis-ci.org/starofrainnight/rabird.html.svg
+    :target: https://travis-ci.org/starofrainnight/rabird.html
 
 .. image:: https://ci.appveyor.com/api/projects/status/github/starofrainnight/rabird.html?svg=true
-        :target: https://ci.appveyor.com/project/starofrainnight/rabird.html
+    :target: https://ci.appveyor.com/project/starofrainnight/rabird.html
 
 Provided some utilities that help html parsing
 
